@@ -21,16 +21,32 @@ public class Person implements Comparable
 	private int privilege;
 
 	// CONSTRUCTORS	
+	/**
+	* Full constructor to create person object
+	* 
+	* @param String name
+	* @param String pronouns
+	* @param String background
+	* @param int privilege
+	*/
 	public Person(String name, String pronouns, String background, int privilege) {
 		this.setName(name);
 		this.setPrivilege(privilege);
 		identity = new Identity(pronouns, background);
 	}
 		
+	/**
+	* Default constructor to create person object, uses default variables
+	*/
 	public Person() {
 		this(DEFAULT_NAME, DEFAULT_PRONOUNS, DEFAULT_BACKGROUND, DEFAULT_PRIVILEGE);
 	}
 	
+	/**
+	* Copy constructor to create deep copy of a person object
+	* 
+	* @param Person original person object
+	*/
 	public Person(Person original) {
 		if(original == null) {
 			throw new IllegalArgumentException("Cannot copy null obect in Person copy constructor");
@@ -42,22 +58,51 @@ public class Person implements Comparable
 	}
 
 	// MUTATORS/SETTERS
+	
+	/**
+	* Method to set a name for a Person object
+	* 
+	* @param String name
+	*/
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	* Method to set a pronouns for a Person object
+	* 
+	* @param String pronouns
+	*/
 	public void setPronouns(String pronouns) {
 		identity.pronouns = pronouns;
 	}
 
+	/**
+	* Method to set a background for a Person object
+	* 
+	* @param String background
+	*/
 	public void setBackground(String background) {
 		identity.background = background;
 	}
 
+	/**
+	* Method to set a privilege value for a Person object
+	* 
+	* @param int privilege
+	*/
 	public void setPrivilege(int privilege) {
 		this.privilege = privilege;
 	}
 
+	/**
+	* Method to set all variables for a Person object
+	* 
+	* @param String name
+	* @param String pronouns
+	* @param String background
+	* @param int privilege
+	*/
 	public void setAll(String name, String pronoun, String background, int privilege) {
 		this.setPrivilege(privilege);
 		this.setName(name);
@@ -66,23 +111,49 @@ public class Person implements Comparable
 	}
 
 	// ACCESSORS / GETTERS
+
+	/**
+	* Method to get a name of a Person object
+	* 
+	* @return name of a person
+	*/
 	public String getName() {
 		return this.name;
 	}
 		
+	/**
+	* Method to get a pronouns of a Person object
+	* 
+	* @return pronouns of a person
+	*/
 	public String getPronouns() {
 		return identity.pronouns;
 	}
 
+	/**
+	* Method to get a background of a Person object
+	* 
+	* @return background of a person
+	*/
 	public String getBackground() {
 		return identity.background;
 	}
 
+	/**
+	* Method to get a privilege value of a Person object
+	* 
+	* @return privilege of a person
+	*/
 	public int getPrivilege() {
 		return this.privilege;
 	}
 
 	// OTHER REQUIRED METHODS
+	/**
+	* Method that returns Person object as formatted string
+	* 
+	* @return string representing object
+	*/
 	@Override
 	public String toString()
 	{
@@ -90,6 +161,13 @@ public class Person implements Comparable
 				+ "According to this calculator I ended up with "+ this.privilege + " estimated privilege points";
 	}
 	
+	/**
+	* Method that compares two person objects
+	* 
+	* @param Object other person
+	*
+	* @return true if objects are the same, false otherwise
+	*/
 	@Override
 	public boolean equals(Object other) 
 	{
@@ -106,6 +184,13 @@ public class Person implements Comparable
 	// INTERFACE METHODS
 	/***** TODO: (Part 1) override compareTo method to implement Comparable interface*****/
 
+	/**
+	* Method that compares privilages two person objects
+	* 
+	* @param Object other person
+	*
+	* @return difference of persons' priveleges as a number
+	*/
 	@Override
 	public int compareTo(Object o) {
 		if (o == null) {
@@ -148,11 +233,23 @@ public class Person implements Comparable
 			this(DEFAULT_PRONOUNS, DEFAULT_BACKGROUND);
 		}
 
+		/**
+		* Method that returns Identity object as formatted string
+		* 
+		* @return string representing object
+		*/
 		@Override
 		public String toString() {
 			return "My pronouns are: " + pronouns + ". My story is: " + background;
 		}
 		
+		/**
+		* Method that compares two Identity objects
+		* 
+		* @param Object other identity
+		*
+		* @return true if identities are the same, false otherwise
+		*/
 		@Override
 		public boolean equals(Object o) {
 			if (o == null) {
