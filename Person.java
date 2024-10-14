@@ -5,7 +5,7 @@
  * @version 1
  */
 
-public class Person implements Comparable
+public class Person implements Comparable<Object>
 {
 	/***** TODO: (Part 2) create helper inner class for Identity*****/
 
@@ -193,14 +193,8 @@ public class Person implements Comparable
 	*/
 	@Override
 	public int compareTo(Object o) {
-		if (o == null) {
-			return -1;
-		} else if (!(o instanceof Person)) {
-			return -1;
-		} else {
-			Person p = (Person) o;
-			return privilege - p.privilege;
-		}
+		Person p = (Person) o;
+		return privilege - p.privilege;
 	}
 
 	/**
