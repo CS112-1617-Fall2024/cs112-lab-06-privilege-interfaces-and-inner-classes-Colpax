@@ -74,13 +74,32 @@ public class Main
 					break;
 				case 3:
 					/***** TODO: (Part 1) implement a comparison case using the comparable method on the Person class to compare self to p1-p4*****/
+					System.out.println("\t\t-80     0                         280");
+					System.out.print("\t\t");
+					for (int i = 0; i < (MAX - MIN + 10) / 10; i++) {
+						System.out.print("-");
+					}
+					System.out.println();
+
 					for (Person p : people) {
-						if (self.compareTo(p) > 0) {
-							System.out.println("More privileges than " +p.getName());
-						} else if (self.compareTo(p) < 0) {
-							System.out.println("Less privileges than " +p.getName());
-						} else {
-							System.out.println("Equal privileges with " +p.getName());
+						System.out.print(p.getName() + "\r\t\t");
+						for (int i = 0; i < (p.getPrivilege() + 80)/10; i++) {
+							System.out.print(" ");
+						}
+						System.out.println(p.getName().substring(0, 1));
+					}
+					
+					System.out.println();
+
+					for (Person p : people) {
+						if(!p.equals(self)){
+							if (self.compareTo(p) > 0) {
+								System.out.println("More privileges than " +p.getName());
+							} else if (self.compareTo(p) < 0) {
+								System.out.println("Less privileges than " +p.getName());
+							} else {
+								System.out.println("Equal privileges with " + p.getName());
+							}
 						}
 					}
 					System.out.println("\nReturning to main menu.\n");
